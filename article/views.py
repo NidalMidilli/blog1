@@ -41,7 +41,6 @@ def addArticle(request):
     if form.is_valid():
         article = form.save(commit = False)
         article.author = request.user
-
         article.save()
         messages.success(request,"Makele Başarıyla Oluşturuldu")
         return redirect("article:dashboard")
@@ -54,7 +53,6 @@ def detail(request,id):
 
 @login_required(login_url= "user:login")
 def updateArticle(request,id):
-
 
     article = get_object_or_404(Article,id=id)
 
