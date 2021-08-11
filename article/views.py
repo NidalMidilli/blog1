@@ -4,7 +4,10 @@ from .forms import ArticleForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Article,Comment
+
+
 # Create your views here.
+
 
 def articles(request):
 
@@ -25,8 +28,11 @@ def index(request):
     }
     return render(request,"index.html",context)
 
+def tanitim(request):  
+    return render(request,"tanitim.html")
 def about(request):
     return render(request,"about.html")
+    
 @login_required(login_url= "user:login")
 def dashboard(request):
     articles = Article.objects.filter(author = request.user)

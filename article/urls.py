@@ -14,5 +14,6 @@ urlpatterns = [
     path('comment/<int:id>',views.addComment,name = "comment"),
     
     
+    
      
 ]
