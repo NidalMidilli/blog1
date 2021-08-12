@@ -18,8 +18,6 @@ def articles(request):
         return render (request,"articles.html",{"articles":articles})
 
     articles = Article.objects.all()
-
-
     articles = Article.objects.all()
 
     return render(request,"articles.html",{"articles":articles})
@@ -43,7 +41,7 @@ def dashboard(request):
 @login_required(login_url= "user:login")
 def addArticle(request):
     form = ArticleForm(request.POST or None,request.FILES or None)
-    
+  
     if form.is_valid():
         article = form.save(commit = False)
         article.author = request.user
