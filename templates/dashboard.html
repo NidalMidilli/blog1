@@ -11,30 +11,30 @@
   <a class="btn btn-danger" href="/articles/addarticle">Makale Ekle</a>
   <hr>
   {% if articles %}
-<table class="table">
-  <thead>
-    <tbody>
-        <tr>
-        <th scope="col">id</th>
-        <th scope="col">Başlık</th>
-        <th scope="col">Yazar</th>
-        <th scope="col">Tarih</th>
-        <th scope="col">Güncelle</th>
-        <th scope="col">Sil</th>
-            {% for article in articles %}
-            <tr>
-                <th scope="row">{{article.id}}</th>
-                <td><a href="{% url 'article:dashboard' %}">{{article.title}}</a></td>
-                <td>{{article.author.username}}</td>
-                <td>{{article.created_date}}</td>
-                <td><a href="{% url 'article:update' article.id %}" class="btn btn-danger">Güncelle</a></td>
-                <td><a href="{% url 'article:delete' article.id %}" class="btn btn-danger">Sil</a></td>
-              </tr>
+    <table class="table">
+      <thead>
+        <tbody>
+          <tr>
+          <th scope="col">id</th>
+          <th scope="col">Başlık</th>
+          <th scope="col">Yazar</th>
+          <th scope="col">Tarih</th>
+          <th scope="col">Güncelle</th>
+          <th scope="col">Sil</th>
+              {% for article in articles %}
+              <tr>
+                  <th scope="row">{{article.id}}</th>
+                  <td><a href="{% url 'article:articles' %}">{{article.title}}</a></td>
+                  <td>{{article.author.username}}</td>
+                  <td>{{article.created_date}}</td>
+                  <td><a href="{% url 'article:update' article.id %}" class="btn btn-danger">Güncelle</a></td>
+                  <td><a href="{% url 'article:delete' article.id %}" class="btn btn-danger">Sil</a></td>
+               </tr>
             {% endfor %}
      
       
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   
   {% else %}
   <div class="alert alert-danger">
